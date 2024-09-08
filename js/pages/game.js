@@ -143,7 +143,7 @@ function goToResultPage() {
 
 	saveGameToStorage(game);
 
-	window.location.pathname = "/result.html";
+	window.location.pathname = "result.html";
 }
 
 function main() {

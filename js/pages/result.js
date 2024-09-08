@@ -73,5 +73,5 @@ restartButton.addEventListener("click", () => {
 	saveGameToStorage(game);
 
 	// Navigate back to Game page
-	window.location.pathname = "/game.html";
+	window.location.pathname = "game.html";
 });
