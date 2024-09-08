@@ -1,3 +1,4 @@
+import navigate from "../navigation/navigate.js";
 import getGameFromStorage from "../storage/getGameFromStorage.js";
 import saveGameToStorage from "../storage/saveGameToStorage.js";
 
@@ -73,5 +74,6 @@ restartButton.addEventListener("click", () => {
 	saveGameToStorage(game);
 
 	// Navigate back to Game page
-	window.location.pathname = "game.html";
+	// window.location.pathname = "./game.html";
+	navigate("game.html");
 });

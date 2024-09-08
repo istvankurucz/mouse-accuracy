@@ -1,3 +1,4 @@
+import navigate from "../navigation/navigate.js";
 import getGameFromStorage from "../storage/getGameFromStorage.js";
 import saveGameToStorage from "../storage/saveGameToStorage.js";
 
@@ -41,5 +42,6 @@ startButton.addEventListener("click", () => {
 	saveGameToStorage(game);
 
 	// 3. Naviagte to game.html
-	window.location.pathname = "game.html";
+	// window.location.pathname = "./game.html";
+	navigate("game.html");
 });

@@ -1,3 +1,4 @@
+import navigate from "../navigation/navigate.js";
 import getGameFromStorage from "../storage/getGameFromStorage.js";
 import saveGameToStorage from "../storage/saveGameToStorage.js";
 
@@ -143,7 +144,8 @@ function goToResultPage() {
 
 	saveGameToStorage(game);
 
-	window.location.pathname = "result.html";
+	//window.location.pathname = "./result.html";
+	navigate("result.html");
 }
 
 function main() {
