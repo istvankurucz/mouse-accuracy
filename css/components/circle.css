@@ -1,0 +1,45 @@
+.circle {
+	--d: 3rem;
+	--x: 0%;
+	--y: 0%;
+	--bg-color: var(--accent-color);
+	--shadow-size: 0.5rem;
+	--shadow-color: hsl(var(--accent-color-values) / 0.25);
+	--growing-time: 3s;
+	--show-time: 5s;
+
+	width: calc(var(--d) - 2 * var(--shadow-size));
+	height: calc(var(--d) - 2 * var(--shadow-size));
+	background-color: var(--bg-color);
+	border-radius: var(--br-pill);
+	box-shadow: 0 0 0 var(--shadow-size) var(--shadow-color);
+	position: absolute;
+	top: var(--y);
+	left: var(--x);
+}
+
+.circle--show {
+	animation: grow var(--growing-time) linear 1 forwards,
+		hide var(--growing-time) linear calc(var(--growing-time) + var(--show-time)) 1 forwards;
+}
+@keyframes grow {
+	from {
+		scale: 0;
+	}
+	to {
+		scale: 1;
+	}
+}
+
+@keyframes hide {
+	to {
+		scale: 0;
+	}
+}
+
+.circle--hit {
+	background-color: transparent;
+	border: 1px solid hsl(var(--text-color-values) / 0.25);
+	box-shadow: 0 0 0;
+	animation: var(--fadeOutAnimation);
+}

@@ -1,0 +1,10 @@
+.miss {
+	--x: 20%;
+	--y: 20%;
+
+	color: hsl(var(--text-color-values) / 0.5);
+	position: absolute;
+	top: var(--y);
+	left: var(--x);
+	animation: var(--fadeOutAnimation);
+}

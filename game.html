@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+		<link rel="stylesheet" href="css/pages/game.css" />
+		<script type="module" src="js/pages/game.js" defer></script>
+		<title>Mouse accuracy</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container header__container">
+				<div class="header__brand">
+					<i class="fa-solid fa-computer-mouse header__brand__icon"></i>
+					<span class="header__brand__text">Mouse accuracy</span>
+				</div>
+
+				<span class="header__exit">
+					<i class="fa-solid fa-arrow-right-from-bracket"></i>
+					Exit
+				</span>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="game__start">
+				<span class="game__start__text">Game starts in </span>
+				<span class="game__start__value">3</span>
+			</div>
+
+			<div class="container game__container">
+				<header class="game__header">
+					<div class="game__header__box game__header__box--timer">
+						<span class="game__header__box__text">Time left:</span>
+						<span class="game__header__box__value">45 s</span>
+					</div>
+
+					<div class="game__header__box game__header__box--score">
+						<span class="game__header__box__text">Score:</span>
+						<span class="game__header__box__value">0 p</span>
+					</div>
+				</header>
+
+				<div class="game__area"></div>
+			</div>
+		</main>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+.pageTitle {
+	width: fit-content;
+	font-size: 2rem;
+	margin-bottom: 3rem;
+	margin-inline: auto;
+	position: relative;
+}
+.pageTitle::after {
+	content: "";
+	height: 0.1rem;
+	background-color: var(--accent-color);
+	position: absolute;
+	bottom: -0.1rem;
+	left: 0;
+	right: 0;
+}

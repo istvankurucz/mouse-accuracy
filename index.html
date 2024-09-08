@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+		<link rel="stylesheet" href="css/pages/settings.css" />
+		<script type="module" src="js/pages/settings.js" defer></script>
+		<title>Mouse accuracy</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container header__container">
+				<div class="header__brand">
+					<i class="fa-solid fa-computer-mouse header__brand__icon"></i>
+					<span class="header__brand__text">Mouse accuracy</span>
+				</div>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="container" style="--max-width: 800px">
+				<h1 class="pageTitle">Settings</h1>
+
+				<h2 class="title">Parameters</h2>
+				<section class="section">
+					<aside class="settings__row settings__row--difficulty">
+						<div class="settings__row__name">
+							<i class="fa-solid fa-gauge-high settings__row__name__icon"></i>
+							<span class="settings__row__name__text"> Difficulty: </span>
+						</div>
+
+						<div class="settings__row__options">
+							<label for="settingsDifficultyEasy" class="radio">
+								<input
+									type="radio"
+									name="settingsDifficulty"
+									id="settingsDifficultyEasy"
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">Easy</span>
+							</label>
+							<label for="settingsDifficultyNormal" class="radio">
+								<input
+									type="radio"
+									name="settingsDifficulty"
+									id="settingsDifficultyNormal"
+									checked
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">Normal</span>
+							</label>
+							<label for="settingsDifficultyHard" class="radio">
+								<input
+									type="radio"
+									name="settingsDifficulty"
+									id="settingsDifficultyHard"
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">Hard</span>
+							</label>
+						</div>
+					</aside>
+
+					<hr class="divider" />
+
+					<aside class="settings__row settings__row--duration">
+						<div class="settings__row__name">
+							<i class="fa-regular fa-clock settings__row__name__icon"></i>
+							<span class="settings__row__name__text"> Duration: </span>
+						</div>
+
+						<div class="settings__row__options">
+							<label for="settingsDuration15" class="radio">
+								<input
+									type="radio"
+									name="settingsDuration"
+									id="settingsDuration15"
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">15 seconds</span>
+							</label>
+							<label for="settingsDuration30" class="radio">
+								<input
+									type="radio"
+									name="settingsDuration"
+									id="settingsDuration30"
+									checked
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">30 seconds</span>
+							</label>
+							<label for="settingsDuration45" class="radio">
+								<input
+									type="radio"
+									name="settingsDuration"
+									id="settingsDuration45"
+									class="radio__input" />
+								<span class="radio__marker"></span>
+								<span class="radio__label">45 seconds</span>
+							</label>
+						</div>
+					</aside>
+				</section>
+
+				<button class="button button--wide button--centered settings__start">Start</button>
+			</div>
+		</main>
+	</body>
+</html>

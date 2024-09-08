@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+		<link rel="stylesheet" href="css/pages/result.css" />
+		<script type="module" src="js/pages/result.js" defer></script>
+		<title>Mouse accuracy</title>
+	</head>
+	<body>
+		<header class="header">
+			<div class="container header__container">
+				<div class="header__brand">
+					<i class="fa-solid fa-computer-mouse header__brand__icon"></i>
+					<span class="header__brand__text">Mouse accuracy</span>
+				</div>
+			</div>
+		</header>
+
+		<main class="main">
+			<div class="container" style="--max-width: 800px">
+				<h1 class="pageTitle">Result</h1>
+
+				<h2 class="title">Applied settings</h2>
+				<section class="section result__section result__section--settings">
+					<div class="result__settings">
+						<div class="result__settings__row result__settings__row--difficulty">
+							<i class="fa-solid fa-gauge-high result__settings__row__icon"></i>
+							<span class="result__settings__row__value">Normal</span>
+						</div>
+
+						<div class="result__settings__row result__settings__row--duration">
+							<i class="fa-regular fa-clock result__settings__row__icon"></i>
+							<span class="result__settings__row__value">30 seconds</span>
+						</div>
+					</div>
+
+					<a href="index.html">
+						<button class="button button--primary result__settings__change">
+							Change settings
+						</button>
+					</a>
+				</section>
+
+				<h2 class="title">Score overview</h2>
+				<section class="section result__section result__section--score">
+					<aside class="result__score__box result__score__box--score">
+						<h3 class="result__score__box__title">Score</h3>
+
+						<div
+							class="result__score__box__row result__score__box__row--main result__score__box__row--finalScore">
+							<span class="result__score__box__row__value"></span>
+						</div>
+						<div
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--baseScore">
+							<span class="result__score__box__row__text">Base: </span>
+							<span class="result__score__box__row__value"></span>
+						</div>
+						<div class="result__score__box__row result__score__box__row--multiplier">
+							<span class="result__score__box__row__text">Multiplier: </span>
+							<span class="result__score__box__row__value"></span>
+						</div>
+					</aside>
+
+					<aside class="result__score__box result__score__box--targets">
+						<h3 class="result__score__box__title">Target effeciency</h3>
+
+						<div
+							class="result__score__box__row result__score__box__row--main result__score__box__row--targetEfficiency">
+							<span class="result__score__box__row__value"></span>
+						</div>
+						<div
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--targetFraction">
+							<span class="result__score__box__row__value">7 / 10</span>
+						</div>
+						<div class="result__score__box__row result__score__box__row">
+							<span class="result__score__box__row__text">Hits / Targets</span>
+						</div>
+					</aside>
+
+					<aside class="result__score__box result__score__box--clicks">
+						<h3 class="result__score__box__title">Click effeciency</h3>
+
+						<div
+							class="result__score__box__row result__score__box__row--main result__score__box__row--clickEfficiency">
+							<span class="result__score__box__row__value"></span>
+						</div>
+						<div
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--clickFraction">
+							<span class="result__score__box__row__value">7 / 10</span>
+						</div>
+						<div class="result__score__box__row result__score__box__row">
+							<span class="result__score__box__row__text">Hits / Clicks</span>
+						</div>
+					</aside>
+				</section>
+
+				<button class="button button--wide button--centered result__restart">Restart</button>
+			</div>
+		</main>
+	</body>
+</html>

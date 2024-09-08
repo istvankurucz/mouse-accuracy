@@ -1,0 +1,53 @@
+@import url("../variables.css");
+
+.button {
+	--color: var(--text-color);
+	--bg-color: var(--accent-color);
+	--hover-color: hsl(var(--accent-color-values) / 0.75);
+
+	font-family: inherit;
+	font-size: var(--fs);
+	font-weight: 500;
+	color: var(--color);
+	background-color: var(--bg-color);
+	border: 0.1rem solid var(--bg-color);
+	border-radius: var(--br);
+	box-shadow: 0.1rem 0.1rem 0.25rem var(--primary-color);
+	padding: 0.75rem 1.5rem;
+	cursor: pointer;
+}
+.button:hover {
+	background-color: var(--hover-color);
+	border-color: var(--hover-color);
+}
+
+/* #region Variants */
+.button--primary {
+	--color: var(--text-color);
+	--bg-color: var(--primary-color);
+	--hover-color: hsl(var(--primary-color-values) / 0.75);
+}
+
+.button--secondary {
+	--color: var(--text-color);
+	--bg-color: var(--secondary-color);
+	--hover-color: hsl(var(--secondary-color-values) / 0.75);
+}
+
+.button--accent {
+	--color: var(--text-color);
+	--bg-color: var(--accent-color);
+	--hover-color: hsl(var(--accent-color-values) / 0.75);
+}
+/* #endregion */
+
+/* #region Types */
+.button--wide {
+	padding-inline: 3rem;
+}
+
+.button--centered {
+	display: block;
+	margin-inline: auto;
+}
+/* #endregion */

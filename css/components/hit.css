@@ -1,0 +1,13 @@
+.hit {
+	--x: 10%;
+	--y: 10%;
+
+	width: 0.5rem;
+	height: 0.5rem;
+	background-color: hsl(var(--text-color-values) / 0.5);
+	border-radius: var(--br-pill);
+	position: absolute;
+	top: var(--y);
+	left: var(--x);
+	animation: var(--fadeOutAnimation);
+}

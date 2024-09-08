@@ -1,0 +1,36 @@
+:root {
+	/* Dimensions */
+	--max-width: 1440px;
+	--header-height: 70px;
+
+	/* Colors */
+	--primary-color-values: 0 0% 15%;
+	--secondary-color-values: 0 0% 5%;
+	--accent-color-values: 0 100% 45%;
+	--text-color-values: 0 0% 90%;
+
+	--primary-color: hsl(var(--primary-color-values));
+	--secondary-color: hsl(var(--secondary-color-values));
+	--accent-color: hsl(var(--accent-color-values));
+	--text-color: hsl(var(--text-color-values));
+
+	/* Font sizes */
+	--fs-s: 0.95rem;
+	--fs: 1rem;
+	--fs-l: 1.1rem;
+
+	/* Border radius */
+	--br-s: 0.25rem;
+	--br: 0.5rem;
+	--br-l: 1rem;
+	--br-pill: 999rem;
+
+	/* Animation */
+	--fadeOutAnimation: fadeOut 2s linear 1s 1 forwards;
+}
+
+@keyframes fadeOut {
+	to {
+		opacity: 0;
+	}
+}

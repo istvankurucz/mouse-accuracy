@@ -1,0 +1,66 @@
+/* #region Imports */
+@import url("../styles.css");
+@import url("../layout/container.css");
+@import url("../layout/header.css");
+@import url("../components/button.css");
+@import url("../components/circle.css");
+@import url("../components/hit.css");
+@import url("../components/miss.css");
+/* #endregion */
+
+.game__header {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+	align-items: center;
+	opacity: 0.25;
+	margin-top: 0.5rem;
+}
+
+.header__exit {
+	cursor: pointer;
+}
+
+.main {
+	height: calc(100vh - var(--header-height));
+	position: relative;
+}
+
+.game__start {
+	font-size: 1.5rem;
+	font-weight: 500;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+.game__container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.game__header__box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.game__header__box__text {
+	font-size: 0.75rem;
+}
+
+.game__header__box__value {
+	font-size: 1.5rem;
+}
+
+.game__area {
+	flex: 1;
+	margin: 2rem;
+	position: relative;
+}
+.game__area:hover {
+	cursor: crosshair;
+}

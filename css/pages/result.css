@@ -1,0 +1,82 @@
+/* #region Imports */
+@import url("../styles.css");
+@import url("../layout/container.css");
+@import url("../layout/header.css");
+@import url("../components/pageTitle.css");
+@import url("../components/title.css");
+@import url("../layout/section.css");
+@import url("../components/button.css");
+/* #endregion */
+
+.main {
+	margin-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.result__section {
+	margin-bottom: 2rem;
+}
+.result__section--settings {
+	display: flex;
+	gap: 3rem;
+	justify-content: space-between;
+}
+.result__section--score {
+	display: flex;
+	gap: 2rem;
+	justify-content: space-evenly;
+}
+
+.result__settings {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.result__settings__row {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
+
+.result__settings__row__icon {
+	color: var(--accent-color);
+}
+
+.result__settings__row__value::first-letter {
+	text-transform: uppercase;
+}
+
+.result__settings__change {
+	align-self: flex-start;
+}
+
+.result__score__box {
+	width: 220px;
+	background-color: var(--primary-color);
+	border-radius: var(--br);
+	padding: 1.5rem 2rem;
+}
+
+.result__score__box__title {
+	font-size: var(--fs);
+	margin-bottom: 2rem;
+}
+
+.result__score__box__row--main {
+	font-size: 3rem;
+	font-weight: 700;
+	text-align: center;
+	color: var(--accent-color);
+	margin-bottom: 2rem;
+}
+
+.result__score__box__row--secondary {
+	font-size: var(--fs-l);
+	font-weight: 500;
+	margin-bottom: 0.5rem;
+}
+
+.result__restart {
+	margin-top: 2rem;
+}
