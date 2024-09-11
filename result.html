@@ -5,7 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		/>
 		<link rel="stylesheet" href="css/pages/result.css" />
 		<script type="module" src="js/pages/result.js" defer></script>
 		<title>Mouse accuracy</title>
@@ -21,7 +22,7 @@
 		</header>
 
 		<main class="main">
-			<div class="container" style="--max-width: 800px">
+			<div class="container" style="--max-width: 800px; --px: 1rem">
 				<h1 class="pageTitle">Result</h1>
 
 				<h2 class="title">Applied settings</h2>
@@ -47,15 +48,17 @@
 
 				<h2 class="title">Score overview</h2>
 				<section class="section result__section result__section--score">
-					<aside class="result__score__box result__score__box--score">
+					<article class="result__score__box result__score__box--score">
 						<h3 class="result__score__box__title">Score</h3>
 
 						<div
-							class="result__score__box__row result__score__box__row--main result__score__box__row--finalScore">
+							class="result__score__box__row result__score__box__row--main result__score__box__row--finalScore"
+						>
 							<span class="result__score__box__row__value"></span>
 						</div>
 						<div
-							class="result__score__box__row result__score__box__row--secondary result__score__box__row--baseScore">
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--baseScore"
+						>
 							<span class="result__score__box__row__text">Base: </span>
 							<span class="result__score__box__row__value"></span>
 						</div>
@@ -63,39 +66,43 @@
 							<span class="result__score__box__row__text">Multiplier: </span>
 							<span class="result__score__box__row__value"></span>
 						</div>
-					</aside>
+					</article>
 
-					<aside class="result__score__box result__score__box--targets">
+					<article class="result__score__box result__score__box--targets">
 						<h3 class="result__score__box__title">Target effeciency</h3>
 
 						<div
-							class="result__score__box__row result__score__box__row--main result__score__box__row--targetEfficiency">
+							class="result__score__box__row result__score__box__row--main result__score__box__row--targetEfficiency"
+						>
 							<span class="result__score__box__row__value"></span>
 						</div>
 						<div
-							class="result__score__box__row result__score__box__row--secondary result__score__box__row--targetFraction">
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--targetFraction"
+						>
 							<span class="result__score__box__row__value">7 / 10</span>
 						</div>
 						<div class="result__score__box__row result__score__box__row">
 							<span class="result__score__box__row__text">Hits / Targets</span>
 						</div>
-					</aside>
+					</article>
 
-					<aside class="result__score__box result__score__box--clicks">
+					<article class="result__score__box result__score__box--clicks">
 						<h3 class="result__score__box__title">Click effeciency</h3>
 
 						<div
-							class="result__score__box__row result__score__box__row--main result__score__box__row--clickEfficiency">
+							class="result__score__box__row result__score__box__row--main result__score__box__row--clickEfficiency"
+						>
 							<span class="result__score__box__row__value"></span>
 						</div>
 						<div
-							class="result__score__box__row result__score__box__row--secondary result__score__box__row--clickFraction">
+							class="result__score__box__row result__score__box__row--secondary result__score__box__row--clickFraction"
+						>
 							<span class="result__score__box__row__value">7 / 10</span>
 						</div>
 						<div class="result__score__box__row result__score__box__row">
 							<span class="result__score__box__row__text">Hits / Clicks</span>
 						</div>
-					</aside>
+					</article>
 				</section>
 
 				<button class="button button--wide button--centered result__restart">Restart</button>

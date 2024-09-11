@@ -22,9 +22,10 @@
 	justify-content: space-between;
 }
 .result__section--score {
-	display: flex;
-	gap: 2rem;
-	justify-content: space-evenly;
+	display: grid;
+	gap: 1.5rem;
+	grid-template-columns: repeat(3, 1fr);
+	justify-items: center;
 }
 
 .result__settings {
@@ -79,4 +80,11 @@
 
 .result__restart {
 	margin-top: 2rem;
+}
+
+@media screen and (max-width: 850px) {
+	.result__section--score {
+		grid-template-rows: repeat(3, 1fr);
+		grid-template-columns: 1fr;
+	}
 }

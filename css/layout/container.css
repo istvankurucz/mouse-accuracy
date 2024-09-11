@@ -1,4 +1,8 @@
 .container {
+	--px: 0;
+	--py: 0;
+
 	max-width: var(--max-width);
 	margin-inline: auto;
+	padding: var(--py) var(--px);
 }
