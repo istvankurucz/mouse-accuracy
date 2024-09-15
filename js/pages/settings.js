@@ -42,6 +42,5 @@ startButton.addEventListener("click", () => {
 	saveGameToStorage(game);
 
 	// 3. Naviagte to game.html
-	// window.location.pathname = "./game.html";
 	navigate("game.html");
 });

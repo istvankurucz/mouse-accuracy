@@ -1,6 +1,8 @@
 import navigate from "../navigation/navigate.js";
 import getGameFromStorage from "../storage/getGameFromStorage.js";
 import saveGameToStorage from "../storage/saveGameToStorage.js";
+import createHitMissIcon from "../utils/createHitMissIcon.js";
+import createTargetElement from "../utils/createTargetElement.js";
 
 // Get the game object from storage
 const game = getGameFromStorage();
@@ -46,7 +48,7 @@ function setScores() {
 	);
 
 	targetPercentElement.innerHTML = `${game.getTargetEfficiency()}%`;
-	targetFractionElement.innerHTML = `${game.hitCount} / ${game.targetCount}`;
+	targetFractionElement.innerHTML = `${game.getHitCount()} / ${game.getTargetCount()}`;
 
 	// Click efficiency
 	const clicksElement = document.querySelector(".result__score__box--clicks");
@@ -58,11 +60,36 @@ function setScores() {
 	);
 
 	clicksPercentElement.innerHTML = `${game.getClickEfficiency()}%`;
-	clicksFractionElement.innerHTML = `${game.hitCount} / ${game.clickCount}`;
+	clicksFractionElement.innerHTML = `${game.getHitCount()} / ${game.getClickCount()}`;
+}
+
+// Show the click map
+function showClicksMap() {
+	const mapArea = document.querySelector(".result__section--clicks");
+
+	// Targets
+	game.targets.forEach((target) => {
+		const targetElement = createTargetElement(
+			target.top,
+			target.left,
+			game.diameter,
+			`${game.growingTime}s`,
+			`${game.showTime}s`,
+			true
+		);
+		mapArea.appendChild(targetElement);
+	});
+
+	// Clicks
+	game.clicks.forEach((click) => {
+		const icon = createHitMissIcon(click.isHit, click.top, click.left, true);
+		mapArea.appendChild(icon);
+	});
 }
 
 setSettings();
 setScores();
+showClicksMap();
 
 // Handlig restart button click event
 const restartButton = document.querySelector(".result__restart");
@@ -74,6 +101,5 @@ restartButton.addEventListener("click", () => {
 	saveGameToStorage(game);
 
 	// Navigate back to Game page
-	// window.location.pathname = "./game.html";
 	navigate("game.html");
 });

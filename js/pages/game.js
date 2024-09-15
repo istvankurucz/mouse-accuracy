@@ -1,6 +1,8 @@
 import navigate from "../navigation/navigate.js";
 import getGameFromStorage from "../storage/getGameFromStorage.js";
 import saveGameToStorage from "../storage/saveGameToStorage.js";
+import createHitMissIcon from "../utils/createHitMissIcon.js";
+import createTargetElement from "../utils/createTargetElement.js";
 
 // Get the game from storage
 const game = getGameFromStorage();
@@ -56,26 +58,28 @@ function setTimeLeft() {
 }
 
 // Creates the circles and adds to the area
-function spawnCircles() {
+function spawnTargets() {
 	const area = document.querySelector(".game__area");
 
 	const interval = setInterval(() => {
-		const circle = document.createElement("div");
+		// Generate the position of the target
+		const left = `${(Math.random() * 80 + 10).toFixed(2)}%`;
+		const top = `${(Math.random() * 80 + 10).toFixed(2)}%`;
 
-		circle.classList.add("circle");
-		circle.classList.add("circle--show");
-		circle.style.setProperty("--d", game.diameter);
+		// Create the target element
+		const target = createTargetElement(
+			top,
+			left,
+			game.diameter,
+			`${game.growingTime}s`,
+			`${game.showTime}s`,
+			false
+		);
+		area.appendChild(target);
 
-		const x = Math.random() * 80 + 10;
-		const y = Math.random() * 80 + 10;
-		circle.style.setProperty("--x", `${x}%`);
-		circle.style.setProperty("--y", `${y}%`);
-
-		circle.style.setProperty("--growing-time", `${game.growingTime}s`);
-		circle.style.setProperty("--show-time", `${game.showTime}s`);
-
-		area.appendChild(circle);
-		game.increaseTargetCount();
+		// Update game object
+		const targetObject = { top, left };
+		game.addTarget(targetObject);
 
 		if (game.timeRemaining <= game.growingTime + game.showTime / 2) clearInterval(interval);
 	}, game.spawnTime * 1000);
@@ -88,8 +92,8 @@ function getClickPosition(e, parent) {
 	const dx = e.clientX - parentDimensions.left;
 	const dy = e.clientY - parentDimensions.top;
 
-	const top = `${(dy / parent.offsetHeight) * 100}%`;
-	const left = `${(dx / parent.offsetWidth) * 100}%`;
+	const top = `${((dy / parent.offsetHeight) * 100).toFixed(2)}%`;
+	const left = `${((dx / parent.offsetWidth) * 100).toFixed(2)}%`;
 
 	return { top, left };
 }
@@ -99,10 +103,14 @@ function handleGameClick(e) {
 	const isHit =
 		e.target.classList.contains("circle") && !e.target.classList.contains("circle--hit");
 
+	// Get the position of the click
+	const area = document.querySelector(".game__area");
+	const { top, left } = getClickPosition(e, area);
+
 	// Update the game object
-	game.increaseClickCount();
+	const clickObject = { top, left, isHit };
+	game.addClick(clickObject);
 	game.updateScore(isHit);
-	if (isHit) game.increaseHitCount();
 
 	// Add the style to the circle
 	if (isHit) {
@@ -111,24 +119,7 @@ function handleGameClick(e) {
 	}
 
 	// Add hit/miss icon
-	const area = document.querySelector(".game__area");
-	const iconElement = document.createElement("div");
-
-	const { top, left } = getClickPosition(e, area);
-	iconElement.style.setProperty("--x", left);
-	iconElement.style.setProperty("--y", top);
-
-	if (isHit) {
-		iconElement.classList.add("hit");
-	} else {
-		iconElement.classList.add("miss");
-
-		const icon = document.createElement("i");
-		icon.classList.add("fa-solid", "fa-xmark");
-
-		iconElement.appendChild(icon);
-	}
-
+	const iconElement = createHitMissIcon(isHit, top, left);
 	area.appendChild(iconElement);
 
 	// Update the score
@@ -144,7 +135,6 @@ function goToResultPage() {
 
 	saveGameToStorage(game);
 
-	//window.location.pathname = "./result.html";
 	navigate("result.html");
 }
 
@@ -159,7 +149,7 @@ function main() {
 	// After countdown finished
 	setTimeout(() => {
 		setTimeLeft();
-		spawnCircles();
+		spawnTargets();
 
 		document.addEventListener("click", handleGameClick);
 

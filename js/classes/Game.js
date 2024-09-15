@@ -6,9 +6,8 @@ class Game {
 		baseScore = 0,
 		multiplier = 1.5,
 		scoringRules = { hit: 2, noHit: 0 },
-		targetCount = 0,
-		clickCount = 0,
-		hitCount = 0,
+		targets = [],
+		clicks = [],
 		diameter = "3rem",
 		spawnTime = 1,
 		growingTime = 2.5,
@@ -23,9 +22,8 @@ class Game {
 		this.multiplier = multiplier;
 		this.scoringRules = scoringRules;
 
-		this.targetCount = targetCount;
-		this.clickCount = clickCount;
-		this.hitCount = hitCount;
+		this.targets = targets;
+		this.clicks = clicks;
 
 		this.diameter = diameter; // in any CSS dimension
 		this.spawnTime = spawnTime; // in seconds
@@ -80,30 +78,35 @@ class Game {
 		return (this.baseScore * this.multiplier).toFixed(0);
 	}
 
-	increaseTargetCount() {
-		this.targetCount++;
+	getTargetCount() {
+		return this.targets.length;
+	}
+	addTarget(newTarget) {
+		this.targets = [...this.targets, newTarget];
 	}
 	getTargetEfficiency() {
-		return ((this.hitCount / this.targetCount) * 100).toFixed(0);
+		return ((this.getHitCount() / this.getTargetCount()) * 100).toFixed(0);
 	}
 
-	increaseClickCount() {
-		this.clickCount++;
+	getClickCount() {
+		return this.clicks.length;
+	}
+	getHitCount() {
+		const hits = this.clicks.filter((click) => click.isHit);
+		return hits.length;
+	}
+	addClick(newClick) {
+		this.clicks = [...this.clicks, newClick];
 	}
 	getClickEfficiency() {
-		return ((this.hitCount / this.clickCount) * 100).toFixed(0);
-	}
-
-	increaseHitCount() {
-		this.hitCount++;
+		return ((this.getHitCount() / this.getClickCount()) * 100).toFixed(0);
 	}
 
 	restart() {
 		this.timeRemaining = this.duration;
 		this.baseScore = 0;
-		this.targetCount = 0;
-		this.clickCount = 0;
-		this.hitCount = 0;
+		this.targets = [];
+		this.clicks = [];
 	}
 }
 

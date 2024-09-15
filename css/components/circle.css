@@ -16,6 +16,7 @@
 	position: absolute;
 	top: var(--y);
 	left: var(--x);
+	translate: -50% -50%;
 }
 
 .circle--show {
@@ -42,4 +43,11 @@
 	border: 1px solid hsl(var(--text-color-values) / 0.25);
 	box-shadow: 0 0 0;
 	animation: var(--fadeOutAnimation);
+}
+
+.circle--result {
+	background-color: transparent;
+	border: 1px solid hsl(var(--text-color-values) / 0.25);
+	box-shadow: 0 0 0;
+	scale: 1;
 }

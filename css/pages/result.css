@@ -6,6 +6,9 @@
 @import url("../components/title.css");
 @import url("../layout/section.css");
 @import url("../components/button.css");
+@import url("../components/circle.css");
+@import url("../components/hit.css");
+@import url("../components/miss.css");
 /* #endregion */
 
 .main {
@@ -25,6 +28,11 @@
 	display: flex;
 	gap: 2rem;
 	justify-content: space-evenly;
+}
+
+.result__section--clicks {
+	aspect-ratio: 2;
+	position: relative;
 }
 
 .result__settings {

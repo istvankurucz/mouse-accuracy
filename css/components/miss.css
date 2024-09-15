@@ -6,5 +6,10 @@
 	position: absolute;
 	top: var(--y);
 	left: var(--x);
+	translate: -50% -50%;
 	animation: var(--fadeOutAnimation);
+}
+
+.miss--result {
+	animation-play-state: paused;
 }
