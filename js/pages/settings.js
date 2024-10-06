@@ -35,8 +35,8 @@ startButton.addEventListener("click", () => {
 
 	// 2. Update the game object
 	game.restart();
-	game.setDifficulty(difficulty);
-	game.setDuration(duration);
+	game.difficulty = difficulty;
+	game.duration = duration;
 
 	// 3. Save the object to session storage
 	saveGameToStorage(game);

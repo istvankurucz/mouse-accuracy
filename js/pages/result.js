@@ -48,7 +48,7 @@ function setScores() {
 	);
 
 	targetPercentElement.innerHTML = `${game.getTargetEfficiency()}%`;
-	targetFractionElement.innerHTML = `${game.getHitCount()} / ${game.getTargetCount()}`;
+	targetFractionElement.innerHTML = `${game.hitCount} / ${game.targetCount}`;
 
 	// Click efficiency
 	const clicksElement = document.querySelector(".result__score__box--clicks");
@@ -60,7 +60,7 @@ function setScores() {
 	);
 
 	clicksPercentElement.innerHTML = `${game.getClickEfficiency()}%`;
-	clicksFractionElement.innerHTML = `${game.getHitCount()} / ${game.getClickCount()}`;
+	clicksFractionElement.innerHTML = `${game.hitCount} / ${game.clickCount}`;
 }
 
 // Show the click map

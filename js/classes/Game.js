@@ -13,100 +13,145 @@ class Game {
 		growingTime = 2.5,
 		showTime = 4
 	) {
-		this.difficulty = difficulty;
+		this._difficulty = difficulty;
 
-		this.duration = duration; // in seconds
-		this.timeRemaining = timeRemaining; // in seconds
+		this._duration = duration; // in seconds
+		this._timeRemaining = timeRemaining; // in seconds
 
-		this.baseScore = baseScore;
-		this.multiplier = multiplier;
-		this.scoringRules = scoringRules;
+		this._baseScore = baseScore;
+		this._multiplier = multiplier;
+		this._scoringRules = scoringRules;
 
-		this.targets = targets;
-		this.clicks = clicks;
+		this._targets = targets;
+		this._clicks = clicks;
 
-		this.diameter = diameter; // in any CSS dimension
-		this.spawnTime = spawnTime; // in seconds
-		this.growingTime = growingTime; // in seconds
-		this.showTime = showTime; // in seconds
+		this._diameter = diameter; // in any CSS dimension
+		this._spawnTime = spawnTime; // in seconds
+		this._growingTime = growingTime; // in seconds
+		this._showTime = showTime; // in seconds
 	}
 
-	setDifficulty(difficulty) {
-		this.difficulty = difficulty;
+	// Difficulty
+	get difficulty() {
+		return this._difficulty;
+	}
+	set difficulty(difficulty) {
+		this._difficulty = difficulty;
 
 		switch (difficulty) {
 			case "easy":
-				this.multiplier = 1;
-				this.scoringRules = { hit: 1, noHit: 0 };
-				this.diameter = "3.5rem";
-				this.spawnTime = 1;
-				this.growingTime = 3;
-				this.showTime = 5;
+				this._multiplier = 1;
+				this._scoringRules = { hit: 1, noHit: 0 };
+				this._diameter = "3.5rem";
+				this._spawnTime = 1;
+				this._growingTime = 3;
+				this._showTime = 5;
 				break;
 			case "normal":
-				this.multiplier = 1.5;
-				this.scoringRules = { hit: 2, noHit: 0 };
-				this.diameter = "3rem";
-				this.spawnTime = 0.75;
-				this.growingTime = 2.5;
-				this.showTime = 4;
+				this._multiplier = 1.5;
+				this._scoringRules = { hit: 2, noHit: 0 };
+				this._diameter = "3rem";
+				this._spawnTime = 0.75;
+				this._growingTime = 2.5;
+				this._showTime = 4;
 				break;
 			case "hard":
-				this.multiplier = 2;
-				this.scoringRules = { hit: 3, noHit: -1 };
-				this.diameter = "2.5rem";
-				this.spawnTime = 0.5;
-				this.growingTime = 2;
-				this.showTime = 3;
+				this._multiplier = 2;
+				this._scoringRules = { hit: 3, noHit: -1 };
+				this._diameter = "2.5rem";
+				this._spawnTime = 0.5;
+				this._growingTime = 2;
+				this._showTime = 3;
 				break;
 		}
 	}
 
-	setDuration(duration) {
-		this.duration = duration;
-		this.timeRemaining = duration;
+	// Duration
+	get duration() {
+		return this._duration;
+	}
+	set duration(duration) {
+		this._duration = duration;
+		this._timeRemaining = duration;
+	}
+
+	// Time remaining
+	get timeRemaining() {
+		return this._timeRemaining;
 	}
 	decreaseTimeRemaining() {
-		this.timeRemaining--;
+		this._timeRemaining--;
 	}
 
+	// Score
+	get baseScore() {
+		return this._baseScore;
+	}
+	get multiplier() {
+		return this._multiplier;
+	}
 	updateScore(hit) {
-		if (hit) this.baseScore += this.scoringRules.hit;
-		else this.baseScore += this.scoringRules.noHit;
+		if (hit) this._baseScore += this._scoringRules.hit;
+		else this._baseScore += this._scoringRules.noHit;
 	}
 	getFinalScore() {
-		return (this.baseScore * this.multiplier).toFixed(0);
+		return (this._baseScore * this._multiplier).toFixed(0);
 	}
 
-	getTargetCount() {
-		return this.targets.length;
+	// Target
+	get targets() {
+		return this._targets;
+	}
+	get targetCount() {
+		return this._targets.length;
 	}
 	addTarget(newTarget) {
-		this.targets = [...this.targets, newTarget];
+		this._targets = [...this._targets, newTarget];
 	}
 	getTargetEfficiency() {
-		return ((this.getHitCount() / this.getTargetCount()) * 100).toFixed(0);
+		return ((this.hitCount / this.targetCount) * 100).toFixed(0);
 	}
 
-	getClickCount() {
-		return this.clicks.length;
+	// Click
+	get clicks() {
+		return this._clicks;
 	}
-	getHitCount() {
-		const hits = this.clicks.filter((click) => click.isHit);
+	get clickCount() {
+		return this._clicks.length;
+	}
+	get hitCount() {
+		const hits = this._clicks.filter((click) => click.isHit);
 		return hits.length;
 	}
 	addClick(newClick) {
-		this.clicks = [...this.clicks, newClick];
+		this._clicks = [...this._clicks, newClick];
 	}
 	getClickEfficiency() {
-		return ((this.getHitCount() / this.getClickCount()) * 100).toFixed(0);
+		return ((this.hitCount / this.clickCount) * 100).toFixed(0);
 	}
 
+	// Diameter
+	get diameter() {
+		return this._diameter;
+	}
+
+	// Times
+	get spawnTime() {
+		return this._spawnTime;
+	}
+	get growingTime() {
+		return this._growingTime;
+	}
+	get showTime() {
+		return this._showTime;
+	}
+
+	// Restart
 	restart() {
-		this.timeRemaining = this.duration;
-		this.baseScore = 0;
-		this.targets = [];
-		this.clicks = [];
+		this._timeRemaining = this._duration;
+		this._baseScore = 0;
+		this._targets = [];
+		this._clicks = [];
 	}
 }
 
